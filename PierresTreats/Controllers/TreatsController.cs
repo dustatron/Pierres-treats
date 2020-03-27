@@ -18,7 +18,7 @@ namespace PierresTreats.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Flavors.ToList());
+      return View(_db.Treats.ToList());
     }
 
     public ActionResult Create()
@@ -78,4 +78,5 @@ namespace PierresTreats.Controllers
       return RedirectToAction("Index");
     }
   }
+
 }
