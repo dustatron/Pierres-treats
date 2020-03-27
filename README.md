@@ -9,13 +9,31 @@
 This program will allow a user to see the treat and flavor options at a fictional bakery. When a user logins in they will be able add, update and delete both flavors and treats. 
 
 ## Specifications:
+### CRUD Functionality 
 
-| Behavior | Example Input | Example Output |
-|:--------:|:-------------:|:--------------:|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Behavior | Input | Output |
+|---|:---:|:---:|
+| When user opens the application they have a choice to see all Treats or see all Flavors from the Navbar | Home | "Treats", "Flavors."|
+| When a user clicks "Flavors", they are provided with a list of all Flavors | Click: "Flavors" | "Flavors:" "Flavor1", "Flavor2" OR "Add New Flavor"|
+| When a user clicks on "Add A New Flavor", they are directed to a form to add a new Flavor | Cick: "Add A New Flavor | "Add A New Flavor" Name: "Input Name" |
+| When a User Adds a new Flavor Name they are directed back to the Flavors Index page | Name: "Sweet" Submit: "Add New Flavor" | Flavors: "Sweet" |
+| When a user clicks on a Flavor name, they are directed to a list of Treats of with that Flavor | Click: "Sweet" | Flavor Details: "List of Treats:" |
+| From the Flavor Details Page, when a user click on "Edit Flavor", they are directed to a Edit Page Form | Click: "Edit Flavor" | Edit: "Sweets II" |
+| When a user clicks on "Delete Flavor," they are directed to a confirmation page | Click: "Delete Flavor" | "Are you sure you want to delete this?" |
+| When the user clicks on the name of a treat. They are directed to the detail page for that treat | Click: "treat Name" | "treat Name Deatails: |
+| From the treat Details Page, when the user clicks "Edit treat Details", they are directed to an Treat/Edit Page | Click: "Edit treat Details" | Edit "treat Name" with Edit Form |
+| After the User Submits the edit form, they are directed back to the treat Details page | Click: "Save Changes" | treat Index | 
+| From the treat Details Page, when the user clicks on Delete this treat, they are directed to a confirmation page | Click: "Delete This treat" | "Are you sure you want delete 'treat Name' |
+
+###Authentication
+| Behavior | Input | Output |
+|---|:---:|:---:|
+| From the home page a user can click Account from the Navbar and they will be presented with Register, Log in, Home. User If user click on register they will be taken to a form to start an account | "Click Register" | show form to start new accoutn | 
+| From registration form a user should be able to enter in an email and password and then click register and the app will return user to home page | Enter email, password, click register | show home page |
+| A user should be able to click on Account in the Navbar and then click on login. The user should see a form that prompts the user to enter an email and password. When the user enter their details they can click login and they should be taking to the index page. | enter email, password, then click login | see home page |
+| When the user is logged in they should be able to click on Account and see a message that says hello "User user@gmail.com" | click account | "hello User@email.com" |
+| When a user is logged in and they click on account from the Navbar they should they should see a button that says 'log out.' when they click log out it should redirection them home. | click log out | show home page. |
+
 
 ## Setup/Installation Requirements
 
@@ -77,11 +95,8 @@ _Confirm there you will have to navigated to the new directory by typing:_
  cd Pierres-treats
 ```
 
-_Recreate the ``Dusty_McCord_db`` database migraction files using the following Command_
-```sh
- dotnet ef migrate add Inital
-```
-_Then create the database by typing:_
+_Recreate the ``Dusty_McCord_db`` database with the following Command:_
+
 ```sh
  dotnet ef database update
 ```
