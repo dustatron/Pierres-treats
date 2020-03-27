@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace PierresTreats.Controllers
 {
@@ -20,12 +22,12 @@ namespace PierresTreats.Controllers
     {
       return View(_db.Flavors.ToList());
     }
-
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
@@ -33,7 +35,7 @@ namespace PierresTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult Details(int id)
     {
       Flavor thisFlavor = _db.Flavors
@@ -42,13 +44,13 @@ namespace PierresTreats.Controllers
       .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(treat => treat.FlavorId == id);
       return View(thisFlavor);
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
     {
@@ -56,24 +58,24 @@ namespace PierresTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult AddTreat(int id)
     {
       return View();
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor)
     {
       return View();
     }
-
+    [Authorize]
     public ActionResult Delete(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(treat => treat.FlavorId == id);
       return View(thisFlavor);
     }
-
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

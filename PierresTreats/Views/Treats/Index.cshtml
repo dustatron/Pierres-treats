@@ -4,8 +4,10 @@
 @using PierresTreats.Models;
 @model List<PierresTreats.Models.Treat>;
 <div class="row">
+    <div class="section-header">
+      <img src="~/img/treats.jpg" alt="">
+    </div>
   <div class="col-md-6 offset-md-3">
-
     <h1 class="text-center">Treats</h1>
 
     @if (@Model.Count == 0)
@@ -18,7 +20,7 @@
         @foreach (Treat treat in Model)
         {
           <div class="list-group-item list-group-item-action">
-            📚 @Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }) 
+            🍪 @Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }) 
               
           </div>
         }
@@ -26,10 +28,13 @@
     }
     <br>
     <br>
+  @if (User.Identity.IsAuthenticated)
+  {
     <div class="text-center">
-    @Html.ActionLink("➕", "Create", null, null, new {@class="btn btn-success"})
+      @Html.ActionLink("➕", "Create", null, null, new {@class="btn btn-success"})
 
-    @Html.ActionLink("🏠", "Index", "Home", null, new {@class="btn btn-info"})
-  </div>
+      @Html.ActionLink("🏠", "Index", "Home", null, new {@class="btn btn-info"})
+    </div>
+  }
   </div>
 </div>

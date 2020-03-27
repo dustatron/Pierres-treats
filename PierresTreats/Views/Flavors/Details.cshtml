@@ -4,27 +4,36 @@
 @model PierresTreats.Models.Flavor
 
 <div class="row">
-<div class="col-md-8 offset-md-2">
+      <div class="section-header">
+      <img src="https://source.unsplash.com/1600x900/?@Model.FlavorName" alt="">
+    </div>
+<div class="col-md-6 offset-md-3">
+  <div class="title-box">
+    <h3 class="text-center">Flavor Details For: </h3>
+    <h4 class="text-center">@Html.DisplayFor(model => model.FlavorName)</h4>
+  </div>
 
-    <h1>Flavor Details</h1>
-    <hr>
-    <h3>Flavor Name: @Html.DisplayFor(model => model.FlavorName)</h3>
-
-  <hr>
+  
   @if(@Model.Treats.Count == 0)
   {
-    <p>Flavor has not been applied to any Treats yet</p>
+    <h4 class="text-center">Flavor has not been applied to any Treats yet</h4>
   }
   else
   {
-    <h3>You can find this flavor on these treats:</h3>
-    <ul>
+    <h4 class="text-center">This flavor can be found on these treats  :</h4>
+    <div class="list-group" id="list-tab" role="tablist">
     @foreach(var join in Model.Treats)
     {
-      <li> @Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new {id = join.Treat.TreatId})</li>
-
+      <div class="list-group-item list-group-item-action">
+        @Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new {id = join.Treat.TreatId}) 
+      </div>
     }
-    </ul>
+    </div>
   }
+@if (User.Identity.IsAuthenticated)
+{
+  <div class="text-center buttons-bottom">
+    @await Html.PartialAsync("_FlavorButtons")
+  </div>
 
-@await Html.PartialAsync("_FlavorButtons")
+}

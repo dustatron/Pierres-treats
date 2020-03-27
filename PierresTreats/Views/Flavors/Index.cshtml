@@ -4,6 +4,9 @@
 @using PierresTreats.Models;
 @model List<PierresTreats.Models.Flavor>;
 <div class="row">
+      <div class="section-header">
+      <img src="~/img/flavor.jpg" alt="">
+    </div>
   <div class="col-md-6 offset-md-3">
 
     <h1 class="text-center">Flavors</h1>
@@ -18,7 +21,7 @@
         @foreach (Flavor flavor in Model)
         {
           <div class="list-group-item list-group-item-action">
-            📚 @Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId }) 
+             @Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId }) 
               
           </div>
         }
@@ -26,10 +29,12 @@
     }
     <br>
     <br>
-    <div class="text-center">
-    @Html.ActionLink("➕", "Create", null, null, new {@class="btn btn-success"})
-
-    @Html.ActionLink("🏠", "Index", "Home", null, new {@class="btn btn-info"})
-  </div>
+      @if (User.Identity.IsAuthenticated)
+      {
+        <div class="text-center">
+          @Html.ActionLink("➕", "Create", null, null, new {@class="btn btn-success"})
+          @Html.ActionLink("🏠", "Index", "Home", null, new {@class="btn btn-info"})
+        </div>
+      }
   </div>
 </div>
