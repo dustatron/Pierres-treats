@@ -1,12 +1,12 @@
 # _Pierre's Treats_
 
-#### _Epicodus 2020 C#/React Cohort Library Practice Project._
+#### _Epicodus 2020 C#/React Friday Project._
 
-#### By _** Dusty Mccord , Brandan Sayarath, Dom Youmans, James T. | 24 March 2020**_
+#### By _** Dusty Mccord | March 27, 2020**_
 
 ## Description
 
-This program will allow...
+This program will allow a user to see the treat and flavor options at a fictional bakery. When a user logins in they will be able add, update and delete both flavors and treats. 
 
 ## Specifications:
 
@@ -29,8 +29,6 @@ This program will allow...
 * _[Click here](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.203-windows-x64-installer) to download the 64-bit .NET Core SDK from Microsoft Corp._
 * _Open the .exe file and follow the steps provided by the installer for your OS._
 
-#### Install dotnet script
-_Enter the command ``dotnet tool install -g dotnet-script`` in Terminal (macOS) or PowerShell (Windows)._
 
 ### Install MySQL and MySQL Workbench
 
@@ -67,23 +65,35 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 ### Clone this repository
 
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
-* ``cd desktop``
-* ``git clone https://github.com/dustatron/DoctorsOffice``
+```sh
+cd desktop
+```
+```sh
+git clone https://github.com/dustatron/Pierres-treats.git
+```
 
-_Confirm that you have navigated to the DoctorsOffice directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
+_Confirm there you will have to navigated to the new directory by typing:_
+```sh
+ cd Pierres-treats
+```
 
-_Recreate the ``<DATABASE NAME>`` database using the following MySQL commands (in Terminal on macOS or PowerShell on Windows):_
+_Recreate the ``Dusty_McCord_db`` database migraction files using the following Command_
+```sh
+ dotnet ef migrate add Inital
+```
+_Then create the database by typing:_
+```sh
+ dotnet ef database update
+```
 
-<CREATE DATABASE INFO HERE>
+_Now you should be able to start the app by entering the command:_
+```sh
+dotnet run
+```
 
 
-_Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows):_
-* ``cd DoctorsOffice``
-* ``dotnet restore``
-* ``dotnet build``
-* ``dotnet run`` or ``dotnet watch run``
 
-_To view/edit the source code of this application, open the contents of the HairSalon.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal)._
+_To view/edit the source code of this application, open the contents of the Pierres-treats directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal)._
 
 ## Technologies Used
 * _Git_
@@ -103,4 +113,4 @@ _To view/edit the source code of this application, open the contents of the Hair
 
 *This webpage is licensed under the MIT license.*
 
-Copyright (c) 2020 **_Dusty Mccord , Brandan Sayarath, Dom Youmans, James T._**
+Copyright (c) 2020 **_Dusty Mccord_**
