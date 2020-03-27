@@ -25,13 +25,13 @@ namespace PierresTreats
     {
       services.AddMvc();
 
-      // services.AddEntityFrameworkMySql()
-      //   .AddDbContext<RecipeBookContext>(options => options
-      //   .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+      services.AddEntityFrameworkMySql()
+        .AddDbContext<PierresTreatsContext>(options => options
+        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
-      // services.AddIdentity<ApplicationUser, IdentityRole>()
-      //           .AddEntityFrameworkStores<RecipeBookContext>()
-      //           .AddDefaultTokenProviders();
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<PierresTreatsContext>()
+                .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
         {
