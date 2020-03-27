@@ -1,9 +1,6 @@
 @{
   Layout = "_Layout";
 }
-
-<h1>Treats Index</h1>
-
 @using PierresTreats.Models;
 @model List<PierresTreats.Models.Treat>;
 <div class="row">
@@ -22,11 +19,7 @@
         {
           <div class="list-group-item list-group-item-action">
             📚 @Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId }) 
-              @using (Html.BeginForm("AddTitle", "Patrons"))
-              {
-                @Html.Hidden("joinId", @treat.TreatId)
-                <input type="submit" value="Checkout" class="btn btn-info">
-              }
+              
           </div>
         }
       </div>
