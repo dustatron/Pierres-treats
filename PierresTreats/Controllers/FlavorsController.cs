@@ -27,24 +27,30 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Flavor flavor, int RecipeId)
+    public ActionResult Create(Flavor flavor)
     {
-      return View();
+      _db.Flavors.Add(flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
 
     public ActionResult Edit(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(treat => treat.FlavorId == id);
+      return View(thisFlavor);
     }
 
     [HttpPost]
-    public ActionResult Edit(Flavor flavor, int TreatId)
+    public ActionResult Edit(Flavor flavor)
     {
+      _db.Entry(flavor).State = EntityState.Modified;
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
@@ -54,27 +60,23 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddTreat(Flavor flavor, int TreatId)
+    public ActionResult AddTreat(Flavor flavor)
     {
       return View();
     }
 
     public ActionResult Delete(int id)
     {
-      return View();
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(treat => treat.FlavorId == id);
+      return View(thisFlavor);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-
-      return RedirectToAction("Index");
-    }
-
-    [HttpPost]
-    public ActionResult DeleteRecipes(int joinId)
-    {
-
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
   }
