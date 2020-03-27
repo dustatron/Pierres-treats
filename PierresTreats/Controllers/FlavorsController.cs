@@ -58,17 +58,7 @@ namespace PierresTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    [Authorize]
-    public ActionResult AddTreat(int id)
-    {
-      return View();
-    }
-    [Authorize]
-    [HttpPost]
-    public ActionResult AddTreat(Flavor flavor)
-    {
-      return View();
-    }
+
     [Authorize]
     public ActionResult Delete(int id)
     {
