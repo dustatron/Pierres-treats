@@ -23,12 +23,14 @@ namespace PierresTreats.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Treat treat)
     {
+
       _db.Treats.Add(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -36,7 +38,10 @@ namespace PierresTreats.Controllers
 
     public ActionResult Details(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      Treat thisTreat = _db.Treats
+      .Include(treat => treat.Flavors)
+      .ThenInclude(join => join.Flavor)
+      .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
 
@@ -54,15 +59,22 @@ namespace PierresTreats.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddTreat(int id)
+    public ActionResult AddFlavor(int id)
     {
-      return View();
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      return View(thisTreat);
     }
 
     [HttpPost]
-    public ActionResult AddTreat(Treat treat, int FlavorId)
+    public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
-      return View();
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
@@ -81,10 +93,13 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public ActionResult DeleteFlavors(int joinId)
+    public ActionResult DeleteFlavor(int joinId, int treatId)
     {
+      FlavorTreat joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
+      _db.SaveChanges();
 
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", "Treats", new { id = treatId });
     }
   }
 
