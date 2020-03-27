@@ -21,12 +21,8 @@
     <ul>
     @foreach(var join in Model.Treats)
     {
-      <li> : @join.Treat.TreatName</li>
-      @* @using (Html.BeginForm("DeleteTreat", "Flavors"))
-      {
-        @Html.Hidden("joinId", @join.FlavorTreatId)
-        <input type="submit" value="Delete" class="btn btn-danger">
-      } *@
+      <li> @Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new {id = join.Treat.TreatId})</li>
+
     }
     </ul>
   }
