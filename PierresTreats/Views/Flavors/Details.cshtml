@@ -8,23 +8,27 @@
 
     <h1>Flavor Details</h1>
     <hr>
-    <h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h3>
+    <h3>Flavor Name: @Html.DisplayFor(model => model.FlavorName)</h3>
 
-
-  @* @if(@Model.Authors.Count == 0)
+  <hr>
+  @if(@Model.Treats.Count == 0)
+  {
+    <p>Flavor has not been applied to any Treats yet</p>
+  }
+  else
+  {
+    <h3>You can find this flavor on these treats:</h3>
+    <ul>
+    @foreach(var join in Model.Treats)
     {
-      <p>This Book does not belong to any Authors</p>
+      <li> : @join.Treat.TreatName</li>
+      @* @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <input type="submit" value="Delete" class="btn btn-danger">
+      } *@
     }
+    </ul>
+  }
 
-        <h3>Book the Author belongs to:</h3>
-        <ul>
-        @foreach(var join in Model.Authors)
-        {
-            <li>Authored By : @join.Author.Name</li>
-            @using (Html.BeginForm("DeleteAuthor", "Books"))
-            {
-              @Html.Hidden("joinId", @join.BookAuthorId)
-              <input type="submit" value="Delete" class="btn btn-danger">
-            }
-        } *@
 @await Html.PartialAsync("_FlavorButtons")
