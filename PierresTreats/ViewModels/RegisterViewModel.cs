@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 
-
 namespace PierresTreats.ViewModels
 {
   public class RegisterViewModel

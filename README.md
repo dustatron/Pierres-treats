@@ -6,7 +6,7 @@
 
 ## Description
 
-This program will allow a user to see the treat and flavor options at a fictional bakery. When a user logins in they will be able add, update and delete both flavors and treats. 
+This program will allow a user to see the 'Treat' and 'Flavor' options at a fictional bakery. When a user logins in they will be able add, update and delete both flavors and treats. 
 
 ## Specifications:
 ### CRUD Functionality 
@@ -15,7 +15,7 @@ This program will allow a user to see the treat and flavor options at a fictiona
 |---|:---:|:---:|
 | When user opens the application they have a choice to see all Treats or see all Flavors from the Navbar | Home | "Treats", "Flavors."|
 | When a user clicks "Flavors", they are provided with a list of all Flavors | Click: "Flavors" | "Flavors:" "Flavor1", "Flavor2" OR "Add New Flavor"|
-| When a user clicks on "Add A New Flavor", they are directed to a form to add a new Flavor | Cick: "Add A New Flavor | "Add A New Flavor" Name: "Input Name" |
+| When a user clicks on "Add A New Flavor", they are directed to a form to add a new Flavor | Cick: "Add A New Flavor | "Add A New Flavor" Name: "Input Name"|
 | When a User Adds a new Flavor Name they are directed back to the Flavors Index page | Name: "Sweet" Submit: "Add New Flavor" | Flavors: "Sweet" |
 | When a user clicks on a Flavor name, they are directed to a list of Treats of with that Flavor | Click: "Sweet" | Flavor Details: "List of Treats:" |
 | From the Flavor Details Page, when a user click on "Edit Flavor", they are directed to a Edit Page Form | Click: "Edit Flavor" | Edit: "Sweets II" |

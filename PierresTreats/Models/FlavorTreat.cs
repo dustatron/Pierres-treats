@@ -1,4 +1,3 @@
-
 namespace PierresTreats.Models
 {
   public class FlavorTreat
@@ -8,6 +7,5 @@ namespace PierresTreats.Models
     public int TreatId { get; set; }
     public Flavor Flavor { get; set; }
     public Treat Treat { get; set; }
-
   }
 }

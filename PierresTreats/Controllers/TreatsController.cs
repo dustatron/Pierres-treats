@@ -72,6 +72,7 @@ namespace PierresTreats.Controllers
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
+
     [Authorize]
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
@@ -83,6 +84,7 @@ namespace PierresTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", "Treats", new { id = treat.TreatId });
     }
+
     [Authorize]
     public ActionResult Delete(int id)
     {
@@ -90,6 +92,7 @@ namespace PierresTreats.Controllers
       return
        View(thisTreat);
     }
+
     [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
@@ -110,5 +113,4 @@ namespace PierresTreats.Controllers
       return RedirectToAction("Details", "Treats", new { id = treatId });
     }
   }
-
 }

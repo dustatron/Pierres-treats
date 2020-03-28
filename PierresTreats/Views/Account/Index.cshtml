@@ -4,29 +4,29 @@
 
 @using System.Security.Claims
 <div class="row">
-    <div class="section-header">
-      <img src="~/img/lock.jpg" alt="">
-    </div>
-    <div class="col-md-6 offset-md-3">        
-        <h2 class="text-center">Authentication with Identity</h2>
-        <hr />
-        @if (User.Identity.IsAuthenticated)
-        {
-            <p>Hello @User.Identity.Name!</p>
-            @using (Html.BeginForm("LogOff", "Account"))
-            {
-                <div class="text-center">
-                    <input type="submit" class="btn btn-info" value="Log out" />
-                </div>
-            }
-        }
-        else
-        {
-            <div class="text-center">
-                @Html.ActionLink("Register", "Register", null, null, new { @class="btn btn-success"})
-                @Html.ActionLink("Log in", "Login", null, null, new { @class="btn btn-info"})
-                @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-danger"})
-            </div>
-        }
-    </div>
+  <div class="section-header">
+    img src="~/img/lock.jpg" alt="">
+  </div>
+  <div class="col-md-6 offset-md-3">        
+    <h2 class="text-center">Authentication with Identity</h2>
+    <hr />
+    @if (User.Identity.IsAuthenticated)
+    {
+      <p>Hello @User.Identity.Name!</p>
+      @using (Html.BeginForm("LogOff", "Account"))
+      {
+        <div class="text-center">
+          <input type="submit" class="btn btn-info" value="Log out" />
+        </div>
+      }
+    }
+    else
+    {
+      <div class="text-center">
+        @Html.ActionLink("Register", "Register", null, null, new { @class="btn btn-success"})
+        @Html.ActionLink("Log in", "Login", null, null, new { @class="btn btn-info"})
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-danger"})
+      </div>
+    }
+  </div>
 </div>
