@@ -26,6 +26,7 @@ This program will allow a user to see the 'Treat' and 'Flavor' options at a fict
 | From the treat Details Page, when the user clicks on Delete this treat, they are directed to a confirmation page | Click: "Delete This treat" | "Are you sure you want delete 'treat Name' |
 
 ###Authentication
+
 | Behavior | Input | Output |
 |---|:---:|:---:|
 | From the home page a user can click Account from the Navbar and they will be presented with Register, Log in, Home. User If user click on register they will be taken to a form to start an account | "Click Register" | show form to start new accoutn | 
