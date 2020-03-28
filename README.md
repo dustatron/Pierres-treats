@@ -25,7 +25,7 @@ This program will allow a user to see the 'Treat' and 'Flavor' options at a fict
 | After the User Submits the edit form, they are directed back to the treat Details page | Click: "Save Changes" | treat Index | 
 | From the treat Details Page, when the user clicks on Delete this treat, they are directed to a confirmation page | Click: "Delete This treat" | "Are you sure you want delete 'treat Name' |
 
-###Authentication
+### Authentication
 
 | Behavior | Input | Output |
 |---|:---:|:---:|
